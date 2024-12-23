@@ -1,0 +1,11 @@
+{
+  "common": {
+    "retry": "Retry",
+    "search": "Search",
+    "history": "History",
+    "try_again": "Try again",
+    "search_results": "Search results",
+    "error_message": "Something went wrong!",
+    "lost_connection": "Lost network connection"
+  }
+}

@@ -1,0 +1,1 @@
+export 'search_item_mapper.dart';

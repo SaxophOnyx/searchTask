@@ -1,0 +1,20 @@
+name: navigation
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  search:
+    path: ../features/search
+
+  auto_route: ^9.2.2
+
+dev_dependencies:
+  auto_route_generator: ^9.0.0
+  build_runner: ^2.4.8

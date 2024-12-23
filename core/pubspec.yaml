@@ -1,0 +1,31 @@
+name: core
+version: 0.0.1
+publish_to: none
+description: Project core module
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.4.0
+  http: ^1.2.1
+  get_it: ^7.6.7
+  logger: ^2.0.2
+  rxdart: ^0.28.0
+  equatable: ^2.0.7
+  flutter_bloc: ^8.1.4
+  json_annotation: ^4.9.0
+  easy_localization: ^3.0.7
+  freezed_annotation: ^2.4.4
+  observe_internet_connectivity: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - resources/lang/
