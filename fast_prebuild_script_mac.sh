@@ -19,6 +19,12 @@ flutter clean
 
 allDirs
 
+# Generate main files
+(
+    echo_styled "Generating files in main" 33
+    dart run build_runner build --delete-conflicting-outputs
+)
+
 # Generate localization keys
 (
     cd "core" || exit
@@ -30,13 +36,6 @@ dart run easy_localization:generate -f keys -o locale_keys.g.dart -O lib/src/loc
 (
     cd "data" || exit
     echo_styled "Generating data layer files in data" 33
-    dart run build_runner build --delete-conflicting-outputs
-)
-
-# Generate core_ui layer files
-(
-    cd "core_ui" || exit
-    echo_styled "Generating core_ui layer files in core_ui" 33
     dart run build_runner build --delete-conflicting-outputs
 )
 

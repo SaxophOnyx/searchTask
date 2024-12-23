@@ -4,14 +4,10 @@ sealed class AppErrorHandlerEvent {
   const AppErrorHandlerEvent();
 }
 
-class CoreEventReceived extends AppErrorHandlerEvent {
-  final CoreEvent data;
+class RecheckNetworkConnectivityEvent extends AppErrorHandlerEvent {}
 
-  const CoreEventReceived(this.data);
-}
+class ChangeConnectionEvent extends AppErrorHandlerEvent {
+  final bool hasConnection;
 
-class DomainEventReceived extends AppErrorHandlerEvent {
-  final DomainEvent data;
-
-  const DomainEventReceived(this.data);
+  ChangeConnectionEvent({required this.hasConnection});
 }

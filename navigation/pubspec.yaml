@@ -8,13 +8,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   core:
     path: ../core
-  core_ui:
-    path: ../core_ui
-  home:
-    path: ../features/home
+  search:
+    path: ../features/search
 
   auto_route: ^9.2.2
 

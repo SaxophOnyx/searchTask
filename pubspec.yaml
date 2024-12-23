@@ -1,6 +1,6 @@
 name: search_task
 description: "A new Flutter project."
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -14,19 +14,18 @@ dependencies:
     path: ./domain
   core:
     path: ./core
-  core_ui:
-    path: ./core_ui
   data:
     path: ./data
   navigation:
     path: ./navigation
-
   cupertino_icons: ^1.0.8
+  flex_color_scheme: ^8.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  freezed: ^2.5.7
+  build_runner: ^2.4.13
   flutter_lints: ^4.0.0
 
 flutter:

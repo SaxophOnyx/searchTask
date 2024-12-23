@@ -6,16 +6,13 @@ import '../../../../../data.dart';
 
 class ApiProvider {
   final Dio _dio;
-  final ErrorHandler _errorHandler;
 
   final String _listResultField;
 
   const ApiProvider({
     required Dio dio,
-    required ErrorHandler errorHandler,
     required String listResultField,
   })  : _dio = dio,
-        _errorHandler = errorHandler,
         _listResultField = listResultField;
 
   Future<T> object<T>({
@@ -76,12 +73,10 @@ class ApiProvider {
   }) async {
     try {
       Map<String, dynamic>? headers = request.headers;
-
       if (options.useDefaultAuth) {
         headers ??= <String, dynamic>{};
         // TODO: Apply auth headers
       }
-
       final Response<dynamic> response = await _dio.request(
         request.url,
         data: request.body,
@@ -91,20 +86,12 @@ class ApiProvider {
           headers: headers,
         ),
       );
-
       return response.data;
     } on DioException catch (e) {
       final bool unauthorized = e.response?.statusCode == HttpStatus.unauthorized;
       final bool canRefresh = options.useDefaultAuth && !didRefreshTokens;
-
       if (unauthorized && canRefresh) {
         // TODO: Refresh tokens
-      }
-
-      if (options.useErrorHandler) {
-        await _errorHandler.handleError(e);
-      } else {
-        throw AppException(message: e.toString());
       }
     } catch (e) {
       throw AppException(message: e.toString());

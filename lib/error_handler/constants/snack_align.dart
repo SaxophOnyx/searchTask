@@ -1,0 +1,4 @@
+enum SnackAlign {
+  top,
+  bottom;
+}

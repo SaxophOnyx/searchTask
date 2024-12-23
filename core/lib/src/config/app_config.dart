@@ -1,32 +1,27 @@
 enum Flavor {
-  dev,
+  prod,
 }
 
 class AppConfig {
   final Flavor flavor;
   final String baseUrl;
-  final String webSocketUrl;
 
   AppConfig({
     required this.flavor,
     required this.baseUrl,
-    required this.webSocketUrl,
   });
 
   factory AppConfig.fromFlavor(Flavor flavor) {
     String baseUrl;
-    String webSocketUrl;
     switch (flavor) {
-      case Flavor.dev:
-        baseUrl = '';
-        webSocketUrl = '';
+      case Flavor.prod:
+        baseUrl = 'https://openlibrary.org/';
         break;
     }
 
     return AppConfig(
       flavor: flavor,
       baseUrl: baseUrl,
-      webSocketUrl: webSocketUrl,
     );
   }
 }

@@ -13,3 +13,10 @@ extension LocaleObserver on String {
     return this.tr(args: args, namedArgs: namedArgs, gender: gender);
   }
 }
+
+extension AddIfNotExists on List<dynamic> {
+  void addNew<T>(dynamic item) {
+    remove(item);
+    add(item);
+  }
+}

@@ -1,19 +1,17 @@
 import 'package:core/core.dart';
-import 'package:core_ui/core_ui.dart';
 import 'package:data/data.dart';
 import 'package:domain/domain.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
-
-import 'error_handler/provider/app_error_handler_provider.dart';
-  
+import 'error_handler/constants/snack_align.dart';
+import 'error_handler/widget/app_error_handler_provider.dart';
+import 'error_handler/widget/connection_lost_wrapper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  
-  _setupDI(Flavor.dev);
-
+  _setupDI(Flavor.prod);
   runApp(const App());
 }
 
@@ -28,7 +26,6 @@ void _setupDI(Flavor flavor) {
     },
   );
 }
-  
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -50,7 +47,15 @@ class App extends StatelessWidget {
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
-              theme: lightTheme,
+              theme: FlexThemeData.light(scheme: FlexScheme.blue),
+              darkTheme: FlexThemeData.dark(scheme: FlexScheme.blue),
+              builder: (BuildContext context, Widget? child) {
+                return ConnectionLostWrapper(
+                  padding: const EdgeInsets.all(10),
+                  align: SnackAlign.bottom,
+                  child: child!,
+                );
+              },
             ),
           );
         },
@@ -58,5 +63,3 @@ class App extends StatelessWidget {
     );
   }
 }
-  
-  
