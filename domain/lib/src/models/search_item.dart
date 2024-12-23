@@ -1,9 +1,14 @@
-class SearchItem {
+import 'package:core/core.dart';
+
+class SearchItem extends Equatable {
   final String id;
   final String title;
 
-  SearchItem({
+  const SearchItem({
     required this.id,
     required this.title,
   });
+
+  @override
+  List<Object?> get props => <Object?>[id, title];
 }

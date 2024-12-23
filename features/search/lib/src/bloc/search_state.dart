@@ -1,7 +1,9 @@
 part of 'search_bloc.dart';
 
 @freezed
-class SearchState with _$SearchState {
+class SearchState extends Equatable with _$SearchState {
+  const SearchState._();
+
   const factory SearchState({
     required bool isLoading,
     required String lastQuery,
@@ -20,4 +22,14 @@ class SearchState with _$SearchState {
       searchHistoryItems: <SearchHistoryItem>[],
     );
   }
+
+  @override
+  List<Object?> get props => <Object?>[
+        isLoading,
+        lastQuery,
+        searchItems,
+        errorMessage,
+        listReachedMax,
+        searchHistoryItems,
+      ];
 }
