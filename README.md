@@ -94,9 +94,18 @@ This is an architectural decision made to prioritize convenience and development
 thought of as an extension of the language itself rather than a part of the application. It includes
 only functionality that enhances the language’s capabilities, along with external dependencies.
 
-## Plugins
+### Why was this architectural approach chosen?
 
-Project is currently extended with the following plugins
+I acknowledge that the application may appear somewhat bulky. However, I always design applications with scalability in mind. What if tomorrow I decide to turn this test task into a full-fledged app for app stores? The architecture I’ve implemented supports easy testing and enables seamless reusability of components. Additionally, I aim to use a consistent approach across my personal projects to make them more predictable. This ensures that someone familiar with one project can easily navigate others.
+
+### How can the architecture be simplified?
+
+To be honest, I’ve already simplified it somewhat. For instance, I usually include an additional core_ui module in my projects, where I define themes and shared widgets. That said, the architecture could be further simplified by not separating each layer into individual packages or by skipping the useCase layer and interacting directly with the repository.
+
+
+## Dependencies
+
+Project is currently extended with the following packages
 
 | Plugin                        | README                                                 |
 |-------------------------------|--------------------------------------------------------|
@@ -114,3 +123,10 @@ Project is currently extended with the following plugins
 | flex_color_scheme             | https://pub.dev/packages/flex_color_scheme             |
 | freezed_annotation            | https://pub.dev/packages/freezed_annotation            |
 | observe_internet_connectivity | https://pub.dev/packages/observe_internet_connectivity |
+
+## Demo
+
+https://github.com/user-attachments/assets/91055116-d3c3-4010-9853-5f95873c4084
+
+
+
